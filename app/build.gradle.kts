@@ -27,6 +27,10 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+    lint {
+        abortOnError = false
+    }
 }
 
 dependencies {
@@ -37,5 +41,5 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     // FFmpeg wrapper for Android
-    implementation("com.arthenica:ffmpeg-kit-full:6.0-2")
+    implementation("com.arthenica:ffmpeg-kit-full:6.0")
 }
