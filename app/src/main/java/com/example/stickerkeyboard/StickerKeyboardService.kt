@@ -102,7 +102,7 @@ class StickerKeyboardService : InputMethodService() {
                 var audioSuccess = false
                 try {
                     audioSuccess = InputConnectionCompat.commitContent(
-                        currentInputConnection, currentEditorInfo!!, audioInfo,
+                        currentInputConnection!!, currentEditorInfo!!, audioInfo,
                         InputConnectionCompat.INPUT_CONTENT_GRANT_READ_URI_PERMISSION, null
                     )
                 } catch (e: Exception) {
