@@ -41,5 +41,5 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     // FFmpeg wrapper for Android
-    implementation("com.arthenica:ffmpeg-kit-full:5.1.LTS")
+    implementation("com.arthenica:ffmpeg-kit-full:6.0.LTS")
 }
