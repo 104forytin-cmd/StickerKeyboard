@@ -9,7 +9,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.arthenica.ffmpegkit.FFmpegKit
-import com.arthenica.ffmpegkit.ReturnCode
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -83,7 +82,9 @@ class MainActivity : AppCompatActivity() {
                 val audioSession = FFmpegKit.execute(audioCmd)
 
                 withContext(Dispatchers.Main) {
-                    if (ReturnCode.isSuccess(webpSession.returnCode) && ReturnCode.isSuccess(audioSession.returnCode)) {
+                    val webpRet = webpSession.returnCode?.value
+                    val audioRet = audioSession.returnCode?.value
+                    if (webpRet == 0 && audioRet == 0) {
                         tvStatus.text = "Status: Success! WebP size: ${outWebp.length() / 1024}KB"
                     } else {
                         tvStatus.text = "Status: FFmpeg Error. Check logs."
