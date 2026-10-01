@@ -45,12 +45,18 @@ class StickerKeyboardService : InputMethodService() {
         if (info != null) {
             val mimeTypes = EditorInfoCompat.getContentMimeTypes(info)
             acceptedMimeTypes = mimeTypes
-            tvMimeTypes.text = "Accepted MIME types: ${mimeTypes.joinToString(", ")}"
+            if (::tvMimeTypes.isInitialized) {
+                tvMimeTypes.text = "Accepted MIME types: ${mimeTypes.joinToString(", ")}"
+            }
         } else {
             acceptedMimeTypes = emptyArray()
-            tvMimeTypes.text = "Accepted MIME types: unknown"
+            if (::tvMimeTypes.isInitialized) {
+                tvMimeTypes.text = "Accepted MIME types: unknown"
+            }
         }
-        tvCommitStatus.text = "Commit Status: Idle"
+        if (::tvCommitStatus.isInitialized) {
+            tvCommitStatus.text = "Commit Status: Idle"
+        }
     }
 
     private fun sendStickerAndAudio() {
@@ -102,13 +108,15 @@ class StickerKeyboardService : InputMethodService() {
                 var audioSuccess = false
                 try {
                     audioSuccess = InputConnectionCompat.commitContent(
-                        currentInputConnection!!, currentEditorInfo!!, audioInfo,
+                        inputConnection, editorInfo, audioInfo,
                         InputConnectionCompat.INPUT_CONTENT_GRANT_READ_URI_PERMISSION, null
                     )
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
-                tvCommitStatus.text = "Sticker: Success | Audio: ${if (audioSuccess) "Success" else "Failed"}"
+                if (::tvCommitStatus.isInitialized) {
+                    tvCommitStatus.text = "Sticker: Success | Audio: ${if (audioSuccess) "Success" else "Failed"}"
+                }
             }, 400)
         }
     }
