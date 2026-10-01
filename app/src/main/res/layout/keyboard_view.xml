@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#DDDDDD"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/tvMimeTypes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Accepted MIME types: ..."
+        android:textSize="12sp"
+        android:textColor="#333333" />
+
+    <TextView
+        android:id="@+id/tvCommitStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Commit Status: Idle"
+        android:textSize="12sp"
+        android:textColor="#333333"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btnSendSticker"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Send Sticker + Audio" />
+
+    <Button
+        android:id="@+id/btnOpenApp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:text="Open App to Create Stickers" />
+
+</LinearLayout>
